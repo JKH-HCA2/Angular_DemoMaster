@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'users';
+
+  firstName: string = 'Foo';
+  lastName: string = 'Bar';
+  email: string = 'foobar@test.com';
+  currentYear: number = 2019;
+
+  addNewUser: boolean = true;
+
+  // declare a method
+  getCurrentYear(): number {
+    return this.currentYear;
+  }
 }
