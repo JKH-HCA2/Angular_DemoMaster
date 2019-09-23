@@ -8,15 +8,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'users';
 
-  firstName: string = 'Foo';
-  lastName: string = 'Bar';
-  email: string = 'foobar@test.com';
+  firstName: string = '';
+  lastName: string = '';
+  email: string = '';
   currentYear: number = 2019;
 
-  addNewUser: boolean = false;
   newUserAdded: boolean = false;
 
-  newUser: string = '';
+  users: Array<object> = [];
 
   // declare a method
   getCurrentYear(): number {
@@ -28,13 +27,10 @@ export class AppComponent {
     this.firstName = '';
     this.lastName = '';
     this.email = '';
-    this.addNewUser = false;
-    this.newUserAdded = false;
   }
 
   onAddUser(): void {
-    this.newUser = `${this.firstName} ${this.lastName} - Email: ${this.email}`;
-    this.addNewUser = true;
+    this.users.push({"firstName": this.firstName, "lastName": this.lastName, "email": this.email});
     this.newUserAdded = true;
   }
   getColor(): string {

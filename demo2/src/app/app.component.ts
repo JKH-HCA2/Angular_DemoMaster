@@ -16,11 +16,11 @@ export class AppComponent {
   
   newMountainAdded: boolean = false;
   
-  newMountain: string = '';
+  mountains: Array<string> = [];
   
   // executed when Add Mountain is clicked
   onAddMountain(): void {
-    this.newMountain = `${this.mountainName} - ${this.mountainElevation}'. ${this.mountainDescription}`;
+    this.mountains.push(`${this.mountainName} - ${this.mountainElevation}'. ${this.mountainDescription}`);
     this.newMountainAdded = true;
   }
   
