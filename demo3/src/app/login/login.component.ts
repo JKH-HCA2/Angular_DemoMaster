@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../providers/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,22 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  // create instance of AuthService
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
   }
-
-
-    // Hard-coded for demo purposes
-    USER_NAME: string = 'Admin';
-    PASSWORD: string = 'password';
     
     userName: string = '';
     password: string = '';
     loginError: boolean = false;
 
     onLogin(): void {
-      if (this.userName === this.USER_NAME && this.password === this.PASSWORD) {
+      // call login() method in AuthService to validate login creds
+    if (this.authService.login(this.userName, this.password)) {
         this.loginError = false;
       } else {
         this.loginError = true;
